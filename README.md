@@ -1,3 +1,3 @@
 # ClassFolderHierarchy
-i made this batch file to automaticly make folders for a college session
-for now it's only available in french as i made it for personal use
+I made this batch file to automaticly make folders for a college session.
+For now it is only available in french as i made it for personal use.

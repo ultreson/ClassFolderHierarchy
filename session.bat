@@ -1,9 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
-cd ..
-cd ..
-cd êcole
-cd CÇgep
+echo veuillez executer ce fichier dans le dossier parent de la hierarchie de fichiers
+pause
 SET /P session=Nom de la session?
 SET /P nbcours=Combien de cours?
 md "%session%"

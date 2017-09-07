@@ -1,0 +1,66 @@
+@echo off
+setlocal enabledelayedexpansion
+cd ..
+cd ..
+cd êcole
+cd CÇgep
+SET /P session=Nom de la session?
+SET /P nbcours=Combien de cours?
+md "%session%"
+cd "%session%"
+if "%nbcours%" == "1" (goto 1cours)
+FOR /L %%G IN (1,1,%nbcours%) DO (
+	SET /P nomcours=Nom du cours %%G?
+	@echo !nomcours!
+	SET /P nbjours=Combien de jours?
+	md "!nomcours!"
+	cd "!nomcours!"
+	FOR /L %%H IN (1,1,15) DO (
+		md "semaine %%H"
+		cd "semaine %%H"
+		set VAR=set
+::		IF "!nbjours!" NEQU "1" (
+		FOR /L %%I IN (1,1,!nbjours!) DO (
+			if "%%H"=="1" (
+				set /P nomjours%%I=Nom du jour %%I?
+			)
+			md "!nomjours%%I!"
+		)
+	  ::)
+		cd ..
+	)
+	tree
+	@echo cours "!nomcours!" fait
+	cd..
+	pause
+)
+:fini
+@echo dossiers faits, quitter?
+pause
+exit
+
+:1cours
+SET /P nomcours=Nom du cours %%G?
+	@echo !nomcours!
+	SET /P nbjours=Combien de jours?
+	md "!nomcours!"
+	cd "!nomcours!"
+	FOR /L %%H IN (1,1,15) DO (
+		md "semaine %%H"
+		cd "semaine %%H"
+		set VAR=set
+		IF "!nbjours!" NEQU "1" (
+			FOR /L %%I IN (1,1,!nbjours!) DO (
+				::if "%%H"=="1" (
+					set /P nomjours%%I=Nom du jour %%I?
+				::)
+				md "!nomjours%%I!"
+			)
+::		)
+		cd ..
+	)
+	tree
+	@echo cours "!nomcours!" fait
+	cd..
+	pause
+	goto fini

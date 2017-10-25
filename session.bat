@@ -17,15 +17,14 @@ FOR /L %%G IN (1,1,%nbcours%) DO (
 		IF 1%%H LSS 100 SET numSemaine=0%%H
 		md "semaine !numSemaine!"
 		cd "semaine !numSemaine!"
-		set VAR=set
-::		IF "!nbjours!" NEQU "1" (
-		FOR /L %%I IN (1,1,!nbjours!) DO (
-			if "%%H"=="1" (
-				set /P nomjours%%I=Nom du jour %%I?
+		IF !nbjours! GTR 1 (
+			FOR /L %%I IN (1,1,!nbjours!) DO (
+				if "%%H"=="1" (
+					set /P nomjours%%I=Nom du jour %%I?
+				)
+				md "!nomjours%%I!"
 			)
-			md "!nomjours%%I!"
 		)
-	  ::)
 		cd ..
 	)
 	tree
